@@ -1,10 +1,10 @@
 import { randomUUID } from "crypto"
 import { SendNotification } from "./send-notification"
-import { NotificationsRepository } from "test/repositories/in-memory-notifications-repository"
+import { InMemoryNotificationsRepository } from "@test/repositories/in-memory-notifications-repository"
 
 describe('Send notification', () => {
     it('should be able to send a notification', async () => {
-        const notificationsReposiry = new NotificationsRepository()
+        const notificationsReposiry = new InMemoryNotificationsRepository()
         const sendNotification = new SendNotification(notificationsReposiry)
 
         const { notification } = await sendNotification.execute({
